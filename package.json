@@ -1,6 +1,6 @@
 {
   "name": "awslittlehelper",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A lightweight package to help you manage all your AWS needs",
   "main": "index.js",
   "scripts": {
