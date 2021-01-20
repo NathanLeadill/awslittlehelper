@@ -1,0 +1,12 @@
+Create seperate methods and be able to set bucket
+This means they can call
+uploadFileToBucket(bucketName, file etc)
+
+and 
+setBucket(..bucket)
+uploadFile()
+deleteFile()
+To save time for people working in the same bucket
+
+
+Create object loop for passing tags to file in aws
