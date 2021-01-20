@@ -51,3 +51,19 @@ exports.deleteFile = function (bucket, filePath, callback) {
 
     s3.deleteObject(params, callback)
 }
+
+exports.checkFileExists = function (bucket, path) {
+    const params = {
+        Bucket: bucket,
+        Key: path
+    };
+    s3.headObject(params, (err, metadata) => {  
+        if (err && err.code === 'NotFound') {
+            console.log(`${path} cannot be found in the specified bucket`);
+            return false;
+        } else deleteFile(path, (err, data) => {
+            if (err) return true;
+            else return false;
+            });
+    });
+}
