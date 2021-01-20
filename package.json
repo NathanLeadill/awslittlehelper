@@ -1,0 +1,11 @@
+{
+  "name": "awslittlehelper",
+  "version": "0.0.1",
+  "description": "A lightweight package to help you manage all your AWS needs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nathan Leadill",
+  "license": "ISC"
+}
