@@ -68,25 +68,32 @@ const uploadFile = (bucket, file, fileName, callback, tagString) => {
     }
 };
 
-const createBucket = (bucketName) => {
+const createBucket = (bucketName, callback) => {
     const bucketParams = { Bucket: bucketName };
-    s3.createBucket(bucketParams, (err, data) => {
-        if (err) console.log('Error', err);
-        else console.log('Success', data.Location);
-    });
+    s3.createBucket(bucketParams, callback);
 };
 
-const listBuckets = () => {
-    s3.listBuckets((err, data) => {
-        if (err) {
-            console.log('error', err);
-            return err;
-        }
-        console.log('Success');
-        return true;
-    });
+const listBuckets = (callback) => {
+    s3.listBuckets(callback);
+};
+
+const deleteBucket = (bucketName, callback) => {
+    const bucketParams = { Bucket: bucketName };
+    s3.deleteBucket(bucketParams, callback);
+};
+
+const listObjectsInBucket = (bucketName, callback) => {
+    const bucketParams = { Bucket: bucketName };
+    s3.listObjects(bucketParams, callback);
 };
 
 module.exports = {
-    setAWSData, uploadFile, deleteFile, checkFileExists, createBucket, listBuckets,
+    setAWSData,
+    uploadFile,
+    deleteFile,
+    checkFileExists,
+    createBucket,
+    listBuckets,
+    deleteBucket,
+    listObjectsInBucket,
 };
