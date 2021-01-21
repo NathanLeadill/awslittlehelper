@@ -1,4 +1,5 @@
 const s3 = require('./helpers/s3.helpers');
-const glacier = require('./helpers/glacier.helpers');
+const glacier = require('./helpers/glacier.helper');
+const dynamo = require('./helpers/dynamo.helper');
 
-module.exports = { s3, glacier };
+module.exports = { s3, glacier, dynamo };
