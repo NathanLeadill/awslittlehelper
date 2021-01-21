@@ -1,6 +1,6 @@
 {
   "name": "awslittlehelper",
-  "version": "0.0.4",
+  "version": "1.0.1",
   "description": "A lightweight package to help you manage all your AWS needs",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,6 @@
   "dependencies": {
     "aws-sdk": "^2.829.0",
     "fs": "0.0.1-security"
-  }
+  },
+  "keywords": ["aws", "s3", "storage", "lightweight", "simple", "basic", "amazon", "web", "services"]
 }

@@ -1,6 +1,6 @@
 # Welcome to AWSLittleHelper
 [![npm version](https://badge.fury.io/js/awslittlehelper.svg)](https://badge.fury.io/js/awslittlehelper)
-Hi! I'm Nathan, and when I began using aws recently to handle storage for my Node apps, It took me a while to piece together the right stackoverflow questions to upload to S3 correctly. So I created awslittlehelper to allow people to quickly import functionality to access S3 and store data there from Express api's.
+Hi! I'm Nathan, and when I began using aws to handle storage for my Node apps, It took me a while to piece together the right stackoverflow questions to upload to S3 correctly. So I created awslittlehelper to allow people to quickly import functionality to access S3 and store data there from Express api's.
 
 Below there is also examples for passing data to this form from a variety of sources, sweetalert2, react and others.
 
@@ -18,9 +18,15 @@ This should install the module to your work area and allow you to require it wit
 
     import * as alh from 'awslittlehelper'
 
-## Usage
-
+## Usage in S3
+ 
 Ok so now you've imported the functionality to your project lets get using it.
+### Set AWS data
+Firstly you must setup your S3 storage space with the correct access and secret key for your S3 account. See below to find out how to get this.
+
+    const alh = require('awslittlehelper')
+    alh.setAWSData('accessKey', 'secretKey')
+
 ### Uploading a file
     const alh = require('awslittlehelper');
     alh.uploadFile(bucketName, file, fileName, (error, data) => {
@@ -34,3 +40,8 @@ Ok so now you've imported the functionality to your project lets get using it.
         if (data) // If success
 	    else  // on Error
     })
+### Check if file exists
+
+    const alh = requite('awslittlehelper')
+    alh.checkFileExists(bucket, path);
+
