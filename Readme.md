@@ -27,6 +27,16 @@ Firstly you must setup your S3 storage space with the correct access and secret 
     const alh = require('awslittlehelper')
     alh.setAWSData('accessKey', 'secretKey')
 
+### Create Bucket
+
+    const alh = require('awslittlehelper');
+    alh.createBucket('bucketName');
+    
+### List Buckets
+
+    const alh = require('awslittlehelper');
+    alh.listBuckets();
+
 ### Uploading a file
     const alh = require('awslittlehelper');
     alh.uploadFile(bucketName, file, fileName, (error, data) => {
@@ -44,4 +54,3 @@ Firstly you must setup your S3 storage space with the correct access and secret 
 
     const alh = requite('awslittlehelper')
     alh.checkFileExists(bucket, path);
-

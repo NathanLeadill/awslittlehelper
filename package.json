@@ -12,5 +12,20 @@
     "aws-sdk": "^2.829.0",
     "fs": "0.0.1-security"
   },
-  "keywords": ["aws", "s3", "storage", "lightweight", "simple", "basic", "amazon", "web", "services"]
+  "keywords": [
+    "aws",
+    "s3",
+    "storage",
+    "lightweight",
+    "simple",
+    "basic",
+    "amazon",
+    "web",
+    "services"
+  ],
+  "devDependencies": {
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
 }
