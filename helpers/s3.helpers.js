@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable consistent-return */
 const AWS = require('aws-sdk');
 const fs = require('fs');
@@ -39,8 +40,8 @@ const checkFileExists = (bucket, path) => {
         if (err && err.code === 'NotFound') {
             console.log(`${path} cannot be found in the specified bucket`);
             return false;
-        } deleteFile(path, (err, data) => {
-            if (err) return true;
+        } deleteFile(path, (errr, data) => {
+            if (errr) return true;
             return false;
         });
     });

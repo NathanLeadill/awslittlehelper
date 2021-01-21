@@ -22,10 +22,10 @@ This should install the module to your work area and allow you to require it wit
  
 Ok so now you've imported the functionality to your project lets get using it.
 ### Set AWS data
-Firstly you must setup your S3 storage space with the correct access and secret key for your S3 account. See below to find out how to get this.
+Firstly you must setup your S3 storage space with the correct access and secret key for your S3 account. See below to find out how to get this. Service is either s3 or glacier. More will be added as I flesh out the module.
 
     const alh = require('awslittlehelper')
-    alh.s3.setAWSData('accessKey', 'secretKey')
+    alh.<service>.setAWSData('accessKey', 'secretKey')
 
 ### Create Bucket
     const alh = require('awslittlehelper');
