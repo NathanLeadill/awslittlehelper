@@ -25,32 +25,32 @@ Ok so now you've imported the functionality to your project lets get using it.
 Firstly you must setup your S3 storage space with the correct access and secret key for your S3 account. See below to find out how to get this.
 
     const alh = require('awslittlehelper')
-    alh.setAWSData('accessKey', 'secretKey')
+    alh.s3.setAWSData('accessKey', 'secretKey')
 
 ### Create Bucket
-
     const alh = require('awslittlehelper');
-    alh.createBucket('bucketName');
+    alh.s3.createBucket('bucketName', callbackFunc);
     
 ### List Buckets
-
     const alh = require('awslittlehelper');
-    alh.listBuckets();
+    alh.s3.listBuckets(callbackFunc);
+
+### List all objects in a bucket
+    const alh = require('awslittlehelper');
+    alh.s3.listObjectsInBucket(bucketName, callbackFunc)
+
+### Delete Bucket
+    const alh = require('awslittlehelper');
+    alt.s3.deleteBucket(bucketName);
 
 ### Uploading a file
     const alh = require('awslittlehelper');
-    alh.uploadFile(bucketName, file, fileName, (error, data) => {
-        if (data) // If success
-	    else  // on Error
-    })
+    alh.s3.uploadFile(bucketName, file, fileName, callbackFunc)
  
 ### Deleting a file
     const alh = require('awslittlehelper');
-    alh.deleteFile(bucketName, fileName, (error, data) => {
-        if (data) // If success
-	    else  // on Error
-    })
+    alh.s3.deleteFile(bucketName, fileName, callbackFunc)
+    
 ### Check if file exists
-
     const alh = requite('awslittlehelper')
-    alh.checkFileExists(bucket, path);
+    alh.s3.checkFileExists(bucket, path, callbackFunc);

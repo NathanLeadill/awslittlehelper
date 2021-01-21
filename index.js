@@ -1,3 +1,3 @@
-const s3helpers = require('./helpers/s3.helpers');
+const s3 = require('./helpers/s3.helpers');
 
-module.exports = { s3helpers };
+module.exports = { s3 };
