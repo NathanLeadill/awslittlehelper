@@ -24,6 +24,14 @@ const generateSchema = (schema) => schema.map((key) => ({
     KeyType: key.type,
 }));
 
+/**
+ * @name createTable
+ * @description Create a table
+ * @param {Array} definitions Definitions for table
+ * @param {Array} schema Schema
+ * @param {String} tableName Name of table you want to create
+ * @param {Function} callback Function you want to call after
+ */
 const createTable = (definitions, schema, tableName, callback) => {
     const params = {
         AttributeDefinitions: [...generateDefinitions(definitions)],
@@ -62,6 +70,20 @@ const listTables = (callback, limit) => {
     dynamo.listTables({ Limit: (limit) || 10 }, callback);
 };
 
+const putItem = (schema, tableName, callback) => {
+    const params = {
+        RequestItems: {
+            [tableName]: [
+                {
+                    ...schema,
+                },
+            ],
+            ProjectionExpression: 'KEY_NAME, ATTRIBUTE',
+        },
+    };
+    dynamo.batchWriteItem(params, callback);
+};
+
 module.exports = {
-    setAWSData, createTable, listTables, deleteTable,
+    setAWSData, createTable, listTables, deleteTable, putItem,
 };

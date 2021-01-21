@@ -31,20 +31,19 @@ const deleteFile = (bucket, filePath, callback) => {
     s3.deleteObject(params, callback);
 };
 
-const checkFileExists = (bucket, path) => {
+/**
+ * @name checkFileExists
+ * @description Checks if the file exists in the specified bucket.
+ * @param {String} bucket Name of bucket you want to check for.
+ * @param {String} path file and extension you want to find
+ * @param {Function} callback The function you want to run after.
+ */
+const checkFileExists = (bucket, path, callback) => {
     const params = {
         Bucket: bucket,
         Key: path,
     };
-    s3.headObject(params, (err, metadata) => {
-        if (err && err.code === 'NotFound') {
-            console.log(`${path} cannot be found in the specified bucket`);
-            return false;
-        } deleteFile(path, (errr, data) => {
-            if (errr) return true;
-            return false;
-        });
-    });
+    s3.headObject(params, callback);
 };
 
 /**
@@ -68,21 +67,40 @@ const uploadFile = (bucket, file, fileName, callback, tagString) => {
         s3.upload(params, callback);
     }
 };
-
+/**
+ * @name createBucket
+ * @description Creating a bucket with specified name
+ * @param {String} bucketName Name of bucket you want to create
+ * @param {Function} callback Function you want to run after
+ */
 const createBucket = (bucketName, callback) => {
     const bucketParams = { Bucket: bucketName };
     s3.createBucket(bucketParams, callback);
 };
 
-const listBuckets = (callback) => {
-    s3.listBuckets(callback);
-};
+/**
+ * @name listBuckets
+ * @description List all your available buckets
+ * @param {Function} callback Function you want to run after
+ */
+const listBuckets = (callback) => s3.listBuckets(callback);
 
+/**
+ * @name deleteBucket
+ * @description Deletes a specified buckets
+ * @param {String} bucketName Name of bucket you want to delete
+ * @param {Function} callback Function you want to run after
+ */
 const deleteBucket = (bucketName, callback) => {
     const bucketParams = { Bucket: bucketName };
     s3.deleteBucket(bucketParams, callback);
 };
 
+/**
+ * 
+ * @param {String} bucketName Name of bucket you want to list objects from
+ * @param {Function} callback Function you want to run after
+ */
 const listObjectsInBucket = (bucketName, callback) => {
     const bucketParams = { Bucket: bucketName };
     s3.listObjects(bucketParams, callback);
